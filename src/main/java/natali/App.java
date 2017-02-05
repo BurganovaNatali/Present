@@ -15,17 +15,15 @@ public class App {
         candies.add(new Caramel("Кузнечик", 200));
         candies.add(new Iris("Вася", 100));
 
-
+        System.out.println("Конфеты в коробке");
         for (Candy candy : candies) {
             System.out.println(candy.toString());
         }
         Box box = new Box(candies);
 
-        BoxService boxService = new BoxService(box);
-        System.out.println("Вес коробки: " + boxService.allWeight());
+        BoxService boxService = new BoxService();
+        System.out.println("\n" + "Вес коробки: " + boxService.allWeight(box));
 
-        for (Candy candy : boxService.findBySugar(800, 1500)) {
-            System.out.println(candy.toString());
-        }
+        System.out.println("\n" +"Поиск конфет" + "\n" + boxService.findBySugar(box, 800, 1500));
     }
 }
